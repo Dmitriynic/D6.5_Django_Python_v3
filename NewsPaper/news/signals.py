@@ -16,7 +16,7 @@ def notify_users_post(sender, instance, **kwargs):
             print()
             print('Адресат:', subscriber.email)
             html_content = render_to_string(
-                'news/mail.html', {'user': subscriber, 'text': sub_text[:50], 'category': category.article_text})
+                'news/mail.html', {'post': instance, 'text': sub_text[:50], 'category': category.article_text})
 
             msg = EmailMultiAlternatives(
                 subject=f'Здравствуй, {subscriber.username}. Новая статья в вашем разделе!',
